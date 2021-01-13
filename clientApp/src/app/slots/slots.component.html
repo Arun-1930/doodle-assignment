@@ -1,0 +1,18 @@
+<p>Select date to view  slots and Appoinments</p>
+<section class="inputs-icons">
+    <form class="form" #listSlots="ngForm">
+        <div class="row">
+            <div class="col-md-6 col-12">
+                <div class="form-group">
+                    <div class="position-relative has-icon-left">
+                        <input class="form-control" placeholder="dd-mm-yyyy" name="startDate"
+                        [(ngModel)]="startDate" ngbDatepicker #startdate="ngbDatepicker"
+                        (click)="startdate.toggle()"  readonly>
+                    </div>
+                </div> 
+            </div>   
+        </div>                                                
+    </form>
+</section>
+<input class="btn btn-raised btn-primary" type="submit" name="submit" value="Submit" id="submit"
+                            (click)="listslots(listSlots.value)"> 

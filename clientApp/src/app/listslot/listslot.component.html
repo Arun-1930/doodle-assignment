@@ -1,0 +1,41 @@
+<ng-template #content let-modal>
+<div class="modal-header">
+<h4 class="modal-title" id="modal-basic-title">Add slot "{{date}}"</h4>
+<button type="button" class="close" aria-label="Close" (click)="modal.close('00:00')">
+<span aria-hidden="true">&times;</span>
+</button>
+</div>
+<div class="modal-body">
+<label for="start"><b>Start Time:</b></label>
+<div class="input-group">
+<div class="ngx-timepicker-field-example">
+<ngx-timepicker-field [format]="24" [defaultTime]="'00:00'" [max]="'23:29'" [controlOnly]="true" placeholder="hh:mm" #picker1></ngx-timepicker-field>
+</div>
+</div>
+<label for="start"><b>End Time:</b></label>
+<div class="ngx-timepicker-field-example">
+<ngx-timepicker-field [format]="24" [defaultTime]="'00:30'" [max]="'23:29'" [controlOnly]="true" placeholder="hh:mm" #picker2></ngx-timepicker-field>
+</div>
+<p style="color:red;">*Note: Add Slots with 30 mins span</p>
+</div>
+<div class="modal-footer">
+<button type="button" class="btn btn-outline-dark" (click)="modal.close([picker1.timepickerTime,picker2.timepickerTime])">Save</button>
+</div>
+</ng-template>
+
+<h6>Slots for Date "{{date}}"</h6>
+<button class="btn btn-primary" (click)="open(content)">Add Slot</button> &nbsp; &nbsp;<button class="btn btn-primary" (click)="back()">Back</button>
+
+<p style="color:red">{{error}}</p>
+
+<div class="row">
+<div class="col-md-6 col-12">
+<h5><b>Morning Slot</b></h5>
+<ag-grid-angular style="width: 400px;height:500px;" class="ag-theme-alpine" [rowData]="morningSlot" [columnDefs]="columnDefs"></ag-grid-angular>
+</div>
+
+<div class="col-md-6 col-12">
+<h5><b>Evening Slot</b></h5>
+<ag-grid-angular style="width: 400px;height:500px;" class="ag-theme-alpine" [rowData]="eveningSlot" [columnDefs]="columnDefs"></ag-grid-angular>
+</div>
+</div>
