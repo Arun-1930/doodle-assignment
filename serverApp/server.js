@@ -65,12 +65,14 @@ Slots.listSlot(date,function(err, user){
         Booking.addBooking(patient,function(err, user){
             if (err) {
                 console.log('Error occured: --------> '+ err);
+                res.json({message:err});
             } else {
-                //console.log(user)
-                res.send(user);
+                console.log(user)
+                res.json({message:user});
             }
         });
             })
+
   
     //server listening to 3000
 var server = app.listen(5000, function () {

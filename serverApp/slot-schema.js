@@ -17,4 +17,9 @@ module.exports.listSlot = function(date,callback){
     console.log("Requested addSlot() API");
     Slots.create(slot,callback)
  }
+ module.exports.count = function(slot,callback){
+    console.log(slot)
+    console.log("Requested addSlot() API");
+    Slots.find({Slotid:slot},callback).count()
+ }
  
